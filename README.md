@@ -23,7 +23,7 @@ Added the line:
 <script src="http://localhost:8080/application.js" type="text/javascript" charset="utf-8"></script>
 ```
 
-to ## . There is probably a more "rails" way to do this, but for now we just want to get things rolling.  Will look into it later.
+to app/views/layouts/application.html.erb . There is probably a more "rails" way to do this, but for now we just want to get things rolling.  Will look into it later.
 
 Added:
 
