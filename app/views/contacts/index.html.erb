@@ -9,3 +9,10 @@
     App.contactsController.loadAll(<%= @contacts.to_json.html_safe %>);
   });
 </script>
+
+<script type="text/javascript">
+    var jug = new Juggernaut;
+    jug.subscribe("channel1", function(data){
+      App.contactsController.findAll();
+    });
+</script>

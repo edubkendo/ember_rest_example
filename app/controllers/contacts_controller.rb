@@ -1,3 +1,5 @@
+require "juggernaut"
+
 class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
@@ -26,6 +28,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       if @contact.save
         format.json { render json: @contact, status: :created, location: @contact }
+        Juggernaut.publish("channel1", @contact)
       else
         format.json { render json: @contact.errors, status: :unprocessable_entity }
       end
@@ -39,6 +42,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       if @contact.update_attributes(params[:contact])
         format.json { render json: nil, status: :ok }
+        Juggernaut.publish("channel1", @contact)
       else
         format.json { render json: @contact.errors, status: :unprocessable_entity }
       end
